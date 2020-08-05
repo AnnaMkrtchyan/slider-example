@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>js slider</title>
+        <meta name='viewport' content ='width=device-width,initial-scale=1' />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+              
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+            
+        <!-- css -->
+        <link rel="stylesheet" href="css/style1.css" />
+        
+    </head>
+    <body>
+        <section class="bg-blue py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="">
+                            <div class="slide slide-active">
+                                <h5 class="text-white">Ana Brunt</h5>
+                                <p class="text-lightblue">Creative Director</p>
+                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ldummyorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    
+                            </div>
+                            <div class="slide slide-hide">
+                                <h5 class="text-white">Ana Brunt</h5>
+                                <p class="text-lightblue">Designer</p>
+                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    
+                            </div>
+                            <div class="slide slide-hide">
+                                <h5 class="text-white">Ana Brunt</h5>
+                                <p class="text-lightblue">Developer</p>
+                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorext of the printing and typeem Ipsum has been the industry's standard dummy text ever since the 1500s</p>   
+                            </div>
+
+                            <div class="slide-icons2 mt-3">
+                                <i class="fas fa-square icon1"></i>
+                                <i class="fas fa-square icon2"></i>
+                                <i class="fas fa-square icon3"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    
+
+
+        
+
+        <script>
+            let slider = document.querySelector(".slider");
+            
+            let allSliders = document.querySelectorAll(".slide");
+            let selectedSlderIndex = 1;
+            
+            let iconsList = document.getElementsByClassName("fa-square");
+
+            for (let ic of iconsList) {
+                ic.addEventListener("click", function (data) {
+                    let clickedIconClassName = data.currentTarget.classList[2]
+                    let selectedSlideIndex = clickedIconClassName[clickedIconClassName.length - 1]
+
+                    let currentSlide = document.querySelector(".slide-active");
+                    currentSlide.classList.add("slide-hide");
+                    currentSlide.classList.remove("slide-active");
+                    allSliders[selectedSlideIndex - 1].classList.remove('slide-hide');
+                    allSliders[selectedSlideIndex - 1].classList.add('slide-active');
+                });
+            }
+
+            
+        </script>
+    </body>
+</html>
